@@ -1,29 +1,28 @@
-# Descripción del dataset: Spotify Music Data
-[Top Spotify songs from 2010-2019 - BY YEAR](https://www.kaggle.com/datasets/leonardopena/top-spotify-songs-from-20102019-by-year)
+# Descripción del dataset: Yelp Dataset
+[Yelp Dataset](https://www.yelp.com/dataset)
 
-Un cliente desea saber qué hace una canción popular. Contamos con un dataset que contiene información sobre 600 canciones que fueron consideradas las más populares del año por Billboard, durante el periodo de 2010 a 2019. Las variables fueron obtenidas de Spotify, y proporciona datos interesantes sobre cada canción, como el tempo en beats por minuto, la cantidad de palabras habladas, el volumen o "loudness" y la energía de la canción. Estos datos pueden ser útiles para comprender mejor las características que hacen que una canción sea popular y cómo los usuarios interactúan con ella.
+Estos datos se recopilan de la plataforma Yelp, un sitio web especializado en reseñas de negocios. El objetivo de este dataset, proporcionado por Yelp, es facilitar la práctica con bases de datos. Consta de 5 tablas: Business (Negocios), Checkin (Registro de visitas), Review (Reseñas), Tip (Consejos) y User (Usuarios).
 
-| Variable | Definición | Tipo|
-|------|-----|--------|
-| title | El título de la canción | String|
-| artist | El artista que interpreta la canción | String|
-| top genre | El género de música de la canción | String|
-| year | El año en que la canción estuvo en el Billboard | Integer|
-| bpm | Beats por minuto: el tempo de la canción | Integer|
-| nrgy | La energía de la canción: valores más altos significan más energía (rápido, fuerte) | Integer|
-| dnce | La capacidad de baile de la canción: valores más altos significan que es más fácil de bailar | Integer|
-| dB | Decibelios: el volumen de la canción | Integer|
-| live | Vivo: la probabilidad de que la canción se haya grabado con una audiencia en vivo | Integer|
-| val | Valencia: valores más altos significan un sonido más positivo (feliz, alegre) | Integer|
-| dur | La duración de la canción | Integer
-| acous | Acústica de la canción: la probabilidad de que la canción sea acústica | Integer|
-| spch | Habla: valores más altos significan más palabras habladas en la canción | Integer|
-| pop | Popularidad: valores más altos significan mayor popularidad | Integer|
+Estas tablas contienen información relevante, como el nombre, la dirección y la categoría de cada negocio, así como datos detallados sobre las reseñas de los usuarios, incluyendo la puntuación y el texto de las mismas. 
+
+---
+Esquema Yelp Dataset
+---
+```mermaid
+flowchart LR
+
+    A[review] --- C[business]
+    A[review] --- B[user]
+    B[user]--- D[tip]
+    C[business] --- E[checkin]
+    C[business] --- D[tip]
+
+```
+
 
 ## Posibles relaciones
-- El género musical puede influir en las características de la canción, como el tempo y la energía.
-- La popularidad de una canción puede verse afectada por su energía, capacidad de baile y probabilidad de que se hablen palabras en la canción.
-- La acústica de la canción y la cantidad de palabras habladas en la canción pueden estar relacionadas entre sí, ya que las canciones más acústicas pueden tener menos palabras habladas y viceversa.
+- Relación entre Business y Review: Cada reseña de Review está asociada a un negocio específico en la tabla de Business.
+- Relación entre User y Review: Cada reseña en el conjunto de datos de Review está escrita por un usuario específico en el conjunto de datos de User.
 
 # Investigacion SGBD: PostgreSQL
 PostgreSQL es una base de datos relacional de código abierto que se originó en la Universidad de California en Berkeley en la década de 1980. 
