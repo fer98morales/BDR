@@ -35,7 +35,7 @@ Entidad1[business]
     Entidad1 --- E1_Atributo11([is_open]) --- E1_D11{{"NUMERO > 0"}}
     Entidad1 --- E1_Atributo12([ByAppointmentOnly]) --- E1_D12{{"TEXTO (20)"}}
     Entidad1 --- E1_Atributo13([BusinessAcceptsCreditCards]) --- E1_D13{{"TEXTO (20)"}}
-    Entidad1 --- E1_Atributo14([categories]) --- E1_D14{{"TEXTO (100)"}}
+    Entidad1 --- E1_Atributo21([categories]) --- E1_D21{{"TEXTO (100)"}}
     Entidad1 --- E1_Atributo14([Monday]) --- E1_D14{{"TEXTO (100)"}}
     Entidad1 --- E1_Atributo15([Tuesday]) --- E1_D15{{"TEXTO (100)"}}
     Entidad1 --- E1_Atributo16([Wednesday]) --- E1_D16{{"TEXTO (100)"}}
