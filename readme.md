@@ -10,6 +10,6 @@ El repositorio incluirá las siguientes carpetas:
 
 - **Tareas:** Contendrá las entregas de las tareas asignadas en la clase.
   - [Tarea 1](https://github.com/fer98morales/BDR/blob/f90f0480a0cb9574665d56bb95e4203bf739c51b/Tareas/Tarea1.md)
-  - [Tarea 2](Tareas\Tarea2.md)
+  - [Tarea 2](https://github.com/fer98morales/BDR/blob/master/Tareas/Tarea2.md)
 - **Proyectos:** Contendrá los proyectos asignados en la clase.
 - **Recursos:** Contendrá recursos útiles para la clase, como ejemplos de código, documentos y enlaces a sitios web relevantes.
