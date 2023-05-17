@@ -24,7 +24,7 @@ Entidad4 -- "N" --- R5{Recibe consejos de} --"1" --- Entidad5
 ## Nivel 2: Entidades y sus atributos
 A continuación se presenta el diagrama entidad-relación en el nivel 2, donde se detallan las entidades y sus atributos:
 
-> **Nota:** Por alguna razón, al enviar a Git las claves primarias, no se subrayan correctamente. Utilicé el formato <u>atributoN</u> para subrayarlas, y en la vista previa se ven subrayadas correctamente. Sin embargo, al enviarlo a Git, no se mantiene el subrayado. Por lo cual enlistare las claves primarias antes de cada diagrama
+> **Nota:** Por alguna razón, al enviar a Git las claves primarias, no se subrayan correctamente. Utilicé el formato "< u >atributoN< /u>" para subrayarlas, y en la vista previa se ven subrayadas correctamente. Sin embargo, al enviarlo a Git, no se mantiene el subrayado. Por lo cual enlistare las claves primarias antes de cada diagrama
 
 
 ### Entidad 1: Business
