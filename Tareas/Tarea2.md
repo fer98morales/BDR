@@ -26,7 +26,7 @@ A continuación se presenta el diagrama entidad-relación en el nivel 2, donde s
 
 ### Entidad 1: Business
 ```mermaid
-flowchart TB
+flowchart LR
 Entidad1[business]
     Entidad1 --- E1_Atributo1([<u>business_id</u>]) --- E1_D1{{"TEXTO (100)"}}
     Entidad1 --- E1_Atributo2([name]) --- E1_D2{{"TEXTO (100)"}}
@@ -53,14 +53,14 @@ Entidad1[business]
 
 ### Entidad 2: Checkin
 ```mermaid
-flowchart TB
+flowchart LR
 Entidad2[checkin]
     Entidad2 --- E2_Atributo1([<u>business_id</u>]) --- E2_D1{{"TEXTO (100)"}}
     Entidad2 --- E2_Atributo2([date]) --- E2_D2{{"TEXTO (100)"}}
 ```
 ### Entidad 3: Review
 ```mermaid
-flowchart TB
+flowchart LR
 Entidad3[review]
     Entidad3 --- E3_Atributo1([review_id]) --- E3_D1{{"TEXTO (100)"}}
     Entidad3 --- E3_Atributo2([user_id</u>]) --- E3_D2{{"TEXTO (100)"}}
@@ -75,7 +75,7 @@ Entidad3[review]
 
 ### Entidad 4: Tip
 ```mermaid
-flowchart TB
+flowchart LR
     Entidad4[tip]
     Entidad4 --- E4_Atributo1([<u>user_id</u>]) --- E4_D1{{"TEXTO (100)"}}
     Entidad4 --- E4_Atributo2([<u>business_id</u>]) --- E4_D2{{"TEXTO (100)"}}
@@ -86,7 +86,7 @@ flowchart TB
 
 ### Entidad 5: User
 ```mermaid
-flowchart TB
+flowchart LR
     Entidad5[user]
     Entidad5 --- E5_Atributo1([<u>user_id</u>]) --- E5_D1{{"TEXTO (100)"}}
     Entidad5 --- E5_Atributo2([name]) --- E5_D2{{"TEXTO (100)"}}
