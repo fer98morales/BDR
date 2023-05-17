@@ -1,7 +1,11 @@
+# Tarea: Convierte tu base de datos no estructurada en un modelo entidad-relación
+
 # Diagrama entidad-relación
-Debido al número de atributos en mis bases, opté por presentar el diagrama en distintos niveles.
+
 
 ## Nivel 1: Relaciones entre las entidades
+A continuación se presenta el diagrama entidad-relación en el nivel 1, donde se muestran las relaciones entre las entidades:
+
 ```mermaid
 flowchart TD
 Entidad1[business]
@@ -18,9 +22,11 @@ Entidad4 -- "N" --- R5{Recibe consejos de} --"1" --- Entidad5
 ```
 
 ## Nivel 2: Entidades y sus atributos
-### business
+A continuación se presenta el diagrama entidad-relación en el nivel 2, donde se detallan las entidades y sus atributos:
+
+### Entidad 1: Business
 ```mermaid
-flowchart LR
+flowchart TB
 Entidad1[business]
     Entidad1 --- E1_Atributo1([<u>business_id</u>]) --- E1_D1{{"TEXTO (100)"}}
     Entidad1 --- E1_Atributo2([name]) --- E1_D2{{"TEXTO (100)"}}
@@ -45,16 +51,16 @@ Entidad1[business]
     Entidad1 --- E1_Atributo20([Sunday]) --- E1_D20{{"TEXTO (100)"}}
 ```
 
-### checkin
+### Entidad 2: Checkin
 ```mermaid
-flowchart LR
+flowchart TB
 Entidad2[checkin]
     Entidad2 --- E2_Atributo1([<u>business_id</u>]) --- E2_D1{{"TEXTO (100)"}}
     Entidad2 --- E2_Atributo2([date]) --- E2_D2{{"TEXTO (100)"}}
 ```
-### review
+### Entidad 3: Review
 ```mermaid
-flowchart LR
+flowchart TB
 Entidad3[review]
     Entidad3 --- E3_Atributo1([review_id]) --- E3_D1{{"TEXTO (100)"}}
     Entidad3 --- E3_Atributo2([user_id</u>]) --- E3_D2{{"TEXTO (100)"}}
@@ -67,9 +73,9 @@ Entidad3[review]
     Entidad3 --- E3_Atributo9([date]) --- E3_D9{{"FECHA"}}
 ```
 
-### tip
+### Entidad 4: Tip
 ```mermaid
-flowchart LR
+flowchart TB
     Entidad4[tip]
     Entidad4 --- E4_Atributo1([<u>user_id</u>]) --- E4_D1{{"TEXTO (100)"}}
     Entidad4 --- E4_Atributo2([<u>business_id</u>]) --- E4_D2{{"TEXTO (100)"}}
@@ -78,9 +84,9 @@ flowchart LR
     Entidad4 --- E4_Atributo5([compliment_count]) --- E4_D5{{"TEXTO (100)"}}
 ```
 
-### user
+### Entidad 5: User
 ```mermaid
-flowchart LR
+flowchart TB
     Entidad5[user]
     Entidad5 --- E5_Atributo1([<u>user_id</u>]) --- E5_D1{{"TEXTO (100)"}}
     Entidad5 --- E5_Atributo2([name]) --- E5_D2{{"TEXTO (100)"}}
