@@ -24,7 +24,13 @@ Entidad4 -- "N" --- R5{Recibe consejos de} --"1" --- Entidad5
 ## Nivel 2: Entidades y sus atributos
 A continuación se presenta el diagrama entidad-relación en el nivel 2, donde se detallan las entidades y sus atributos:
 
+> **Nota:** Por alguna razón, al enviar a Git las claves primarias, no se subrayan correctamente. Utilicé el formato <u>atributoN</u> para subrayarlas, y en la vista previa se ven subrayadas correctamente. Sin embargo, al enviarlo a Git, no se mantiene el subrayado. Por lo cual enlistare las claves primarias antes de cada diagrama
+
+
 ### Entidad 1: Business
+> **Claves Primarias:**
+>  - _business_id_
+
 ```mermaid
 flowchart LR
 Entidad1[business]
@@ -52,6 +58,9 @@ Entidad1[business]
 ```
 
 ### Entidad 2: Checkin
+> **Claves Primarias:**
+>  - _business_id_
+
 ```mermaid
 flowchart LR
 Entidad2[checkin]
@@ -59,11 +68,15 @@ Entidad2[checkin]
     Entidad2 --- E2_Atributo2([date]) --- E2_D2{{"TEXTO (100)"}}
 ```
 ### Entidad 3: Review
+> **Claves Primarias:**
+>  - _user_id_
+>- _business_id_
+
 ```mermaid
 flowchart LR
 Entidad3[review]
     Entidad3 --- E3_Atributo1([review_id]) --- E3_D1{{"TEXTO (100)"}}
-    Entidad3 --- E3_Atributo2([user_id</u>]) --- E3_D2{{"TEXTO (100)"}}
+    Entidad3 --- E3_Atributo2([<u>user_id</u>]) --- E3_D2{{"TEXTO (100)"}}
     Entidad3 --- E3_Atributo3([<u>business_id</u>]) --- E3_D3{{"TEXTO (100)"}}
     Entidad3 --- E3_Atributo4([stars]) --- E3_D4{{"NUMERO > 0"}}
     Entidad3 --- E3_Atributo5([useful]) --- E3_D5{{"NUMERO"}}
@@ -74,6 +87,10 @@ Entidad3[review]
 ```
 
 ### Entidad 4: Tip
+> **Claves Primarias:**
+>  - _user_id_
+>- _business_id_
+
 ```mermaid
 flowchart LR
     Entidad4[tip]
@@ -85,6 +102,9 @@ flowchart LR
 ```
 
 ### Entidad 5: User
+> **Claves Primarias:**
+>  - _user_id_
+
 ```mermaid
 flowchart LR
     Entidad5[user]
