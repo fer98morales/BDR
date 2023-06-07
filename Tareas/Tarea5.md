@@ -21,10 +21,16 @@
     );
     ```
 
-2. Abre tu consola de comandos (cmd) e ingresa a PostgreSQL con tu usuario.
+2. Abre tu consola de comandos (cmd) e ingresa PostgreSQL (debes poner el numero de tu version donde dice #Version)
+    ```cmd
+    cd "C:\Program Files\PostgreSQL\#Version\bin"
+    ```
+
+    ingresa tu usuario.
     ```cmd
     psql -U usuario
     ```
+
 
 3. Dentro de PostgreSQL, selecciona tu base de datos.
     ```cmd
