@@ -1,7 +1,7 @@
 # Ejemplos de consultas
 
 - ## Conteo de frecuencias o media: 
-    Deseo conocer los 10 negocios con mayores reseñas en el año 2021 para una campaña enfocada en aquellos que atraen más usuarios.
+    Deseo conocer los 10 negocios con mayor numero de reseñas en el año 2021 para una campaña enfocada en aquellos negocios que atraen más usuarios.
 
     ``` postgresql
     SELECT b."name" AS business_name, count(r.review_id) AS Total_reviews, round(avg(r.stars),2) AS  avg_stars
