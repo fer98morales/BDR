@@ -16,6 +16,7 @@ El repositorio incluirá las siguientes carpetas:
   - [Tarea 5](https://github.com/fer98morales/BDR/blob/master/Tareas/Tarea5.md)  
   - [Tarea 6](https://github.com/fer98morales/BDR/blob/master/Tareas/Tarea6.md)  
   - [Tarea 7](https://github.com/fer98morales/BDR/blob/master/Tareas/Tarea7.md)  
+  - [Tarea 8](https://github.com/fer98morales/BDR/blob/master/Tareas/Tarea8.md) 
   
 - **Proyectos:** Contendrá los proyectos asignados en la clase.
 
