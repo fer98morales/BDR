@@ -2,7 +2,11 @@
 - Dataset utilizado  [audio_features](https://github.com/fer98morales/BDR/blob/master/Tareas/Tarea9.sql)
 - [Pearson Correlation Coefficient by Hand](https://www.statology.org/correlation-coefficient-by-hand/)
 
+> Algunas de las características incluidas en el dataset de Spotify son el nombre del artista, el título de la canción, el género, la duración de la canción, la popularidad, la energía, la valencia, el tempo, el tono, el lenguaje, el modo y muchas otras características relacionadas con el contenido musical.
+
 ## Correlación entre dos conjuntos de datos
+Pensaba que seria interesante buscar alguna correlacion entre lo bailable que es una cancion y su popularidad.
+
 ``` postgresql
 -- Creamos o reemplazamos una función llamada calcular_correlacion que toma dos arreglos de tipo FLOAT como parámetros y devuelve un valor FLOAT.
 CREATE OR REPLACE FUNCTION calcular_correlacion(datax FLOAT[], datay FLOAT[])
@@ -49,7 +53,7 @@ LANGUAGE plpgsql;
 
 SELECT calcular_correlacion(ARRAY(SELECT popularity FROM audio_features), ARRAY(SELECT danceability FROM audio_features)) AS correlacion;
 ```
-
+La correlación calculada indica que la relación lineal entre las variables es muy débil o nula.
 |correlacion|
 |-----------|
 |0.002643091676709995|
@@ -57,6 +61,7 @@ SELECT calcular_correlacion(ARRAY(SELECT popularity FROM audio_features), ARRAY(
 ---
 
 ## Buscar canciones por palabras clave en el nombre de la canción, el nombre del artista o el género.
+Creí que sería útil contar con un motor de búsqueda de canciones que permitiera buscar fácilmente canciones utilizando parte del nombre de la canción, el nombre del artista o el género musical.
 
 ``` postgresql
 -- Creamos o reemplazamos una función llamada buscar_por_palabra_clave que toma una palabra clave de tipo VARCHAR como parámetro y devuelve una tabla con columnas title, artist y genres, todas de tipo VARCHAR.
