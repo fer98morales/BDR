@@ -1,7 +1,4 @@
 # Usando PostgreSQL en Python
-Descubre cómo crear, conectarse y administrar bases de datos PostgreSQL utilizando el paquete psycopg2 de Python.
-
-## Comprendiendo PostgreSQL
 PostgreSQL es una base de datos relacional ligera, gratuita y de código abierto.
 
 ## Comprendiendo psycopg2
@@ -14,6 +11,79 @@ Una vez que psycopg2 esté instalado, podrás usarlo en tus proyectos de Python 
 pip install psycopg2
 ```
 
+## Funciones
+1. Establecimiento de la conexión:
+    - connect() o create_connection(): Funciones utilizadas para establecer una conexión con la base de datos.
+    - close(): Método para cerrar una conexión existente con la base de datos.
+
+        ```python 
+        import psycopg2
+
+        # Establecer la conexión
+        conexion = psycopg2.connect(database="mi_base_de_datos", user="usuario", password="contraseña", host="localhost", port="5432")
+
+        # Realizar operaciones en la base de datos
+
+        # Cerrar la conexión
+        conexion.close()
+        ```
+
+2. Recuperación de datos:
+    - execute(query): Método para ejecutar consultas SQL en la base de datos.
+    - fetchone(): Método para obtener la siguiente fila del conjunto de resultados de una consulta.
+    - fetchall(): Método para obtener todas las filas del conjunto de resultados de una consulta.
+    - fetchmany(size): Método para obtener un número especificado de filas del conjunto de resultados.
+
+        ```python 
+        import psycopg2
+
+        conexion = psycopg2.connect(database="mi_base_de_datos", user="usuario", password="contraseña", host="localhost", port="5432")
+        cursor = conexion.cursor()
+
+        # Ejecutar una consulta
+        cursor.execute("SELECT nombre, edad FROM personas")
+
+        # Obtener una sola fila
+        fila = cursor.fetchone()
+        print(fila)
+
+        # Obtener todas las filas
+        filas = cursor.fetchall()
+        print(filas)
+
+        # Obtener tres filas
+        filas = cursor.fetchmany(3)
+        print(filas)
+
+        cursor.close()
+        conexion.close()
+        ```
+
+3. Modificación de datos:
+    - commit(): Método para guardar los cambios realizados en la base de datos.
+    - rollback(): Método para deshacer los cambios realizados en la transacción actual.
+
+        ```python 
+        import psycopg2
+        conexion = psycopg2.connect(database="mi_base_de_datos", user="usuario", password="contraseña", host="localhost", port="5432")
+        cursor = conexion.cursor()
+
+        try:
+            # Realizar operaciones de modificación
+            cursor.execute("UPDATE empleados SET salario = salario * 1.1 WHERE departamento = 'Ventas'")
+
+            # Guardar los cambios
+            conexion.commit()
+        except Exception as e:
+            # En caso de error, deshacer los cambios
+            conexion.rollback()
+            print("Ocurrió un error:", e)
+
+        cursor.close()
+        conexion.close()
+        ```
+ > Si cierras la conexión después de ejecutar la consulta sin realizar un commit(), los cambios realizados durante la transacción se perderán una vez que la conexión se cierre. 
+ 
 ## Conexión de Python a PostgreSQL
 Para utilizar Python y realizar operaciones con una base de datos PostgreSQL, es necesario establecer una conexión. Esto se logra mediante la función connect() de psycopg2, la cual crea una nueva sesión de base de datos y devuelve una nueva instancia de conexión.
 
@@ -36,6 +106,19 @@ Los parámetros básicos de conexión requeridos son los siguientes:
 * password. La contraseña utilizada para la autenticación.
 * host. La dirección del servidor de la base de datos (en nuestro caso, la base de datos está alojada localmente, pero también podría ser una dirección IP).
 * port. El número de puerto de conexión (por defecto es 5432 si no se proporciona).
+
+## Creación del cursor:
+Antes de realizar operaciones en una base de datos, debes establecer una conexión con la misma. Una vez que tienes una conexión establecida, puedes crear un cursor utilizando el método cursor() proporcionado por el objeto de conexión. El cursor actuará como una especie de "ventana" que permite interactuar con la base de datos.
+
+```python 
+import psycopg2
+
+# Establecer la conexión
+conexion = psycopg2.connect(database="mi_base_de_datos", user="usuario", password="contraseña", host="localhost", port="5432")
+
+# Crear un cursor
+cursor = conexion.cursor()
+```
 
 ## Creando una tabla en PostgreSQL
 La conexión encapsula una sesión de base de datos, lo que te permite ejecutar comandos y consultas SQL, como SELECT, INSERT, CREATE, UPDATE o DELETE, utilizando el método cursor(), y hacer que los cambios sean persistentes utilizando el método commit().
@@ -215,7 +298,7 @@ import psycopg2
 # Definir el símbolo del ticker de la acción y el rango de fechas
 stock_symbol = 'AAPL'  # Apple Inc.
 start_date = '2023-01-01'
-end_date = '2023-07-18'
+end_date = '2023-07-19'
 
 # Descargar datos financieros desde Yahoo Finance
 stock_data = yf.download(stock_symbol, start=start_date, end=end_date)
@@ -273,19 +356,16 @@ with conn.cursor() as cur:
             Fecha DATE PRIMARY KEY,
             CierreAnterior FLOAT,
             MinimoDia FLOAT,
-            MaximoDia FLOAT,
-            Volumen BIGINT
+            MaximoDia FLOAT
         )
     ''')
-
-# Insertar los datos diarios de la acción en la tabla
-with conn.cursor() as cur:
+    # Insertar los datos diarios de la acción en la tabla
     for index, row in stock_data.iterrows():
         cur.execute(f'''
             INSERT INTO {daily_stock_table_name} (Fecha, CierreAnterior, MinimoDia, MaximoDia)
             VALUES (%s, %s, %s, %s)
         ''', (index, row['Close'], row['Low'], row['High']))
-
+    
 # Confirmar los cambios y cerrar la conexión
 conn.commit()
 conn.close()
@@ -330,7 +410,7 @@ drop_table_query = f'''
 join_query = f'''
     CREATE TABLE {joined_table_name} AS
     SELECT f.Fecha, f.Apertura, f.Cierre, f.Volumen,
-           d.CierreAnterior, d.MinimoDia, d.MaximoDia AS volumen_diario
+           d.CierreAnterior, d.MinimoDia, d.MaximoDia
     FROM {financial_table_name} AS f
     JOIN {daily_stock_table_name} AS d
     ON f.Fecha = d.Fecha;
