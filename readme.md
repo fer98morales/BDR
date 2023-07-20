@@ -20,5 +20,6 @@ El repositorio incluirá las siguientes carpetas:
   - [Tarea 9](https://github.com/fer98morales/BDR/blob/master/Tareas/Tarea9.md) 
 
 - **Proyectos:** Contendrá los proyectos asignados en la clase.
+- [PIA](https://github.com/fer98morales/BDR/blob/master/Tareas/PIA_Integracion_python.md)
 
 - **Recursos:** Contendrá recursos útiles para la clase, como ejemplos de código, documentos y enlaces a sitios web relevantes.
